@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Snake Game - Hand Gesture Control | Astirmind Software Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="game-header">
+            <h1 class="game-title">
+                <span class="title-icon">🐍</span>
+                AI SNAKE
+                <span class="title-icon">✋</span>
+            </h1>
+            <p class="game-subtitle">Hand Gesture Control</p>
+            <div class="company-badge">
+                <span class="company-name">Astirmind Software Solutions</span>
+            </div>
+        </div>
+
+        <div class="game-wrapper">
+            <div class="game-canvas-container">
+                <canvas id="gameCanvas" width="800" height="600"></canvas>
+                <div id="gameOverlay" class="game-overlay hidden">
+                    <div class="overlay-content">
+                        <h2>GAME OVER</h2>
+                        <p>Final Score: <span id="finalScore">0</span></p>
+                        <button id="resetBtn" class="reset-button">PLAY AGAIN</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls-panel">
+                <div class="camera-feed">
+                    <h3>
+                        <span class="icon">📹</span>
+                        Hand Tracking Camera
+                    </h3>
+                    <div class="video-container">
+                        <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Camera Feed">
+                    </div>
+                    <div class="camera-instructions">
+                        <div class="instruction-item">
+                            <span class="instruction-icon">👉</span>
+                            <span>Point index finger to control snake direction</span>
+                        </div>
+                        <div class="instruction-item">
+                            <span class="instruction-icon">🟡</span>
+                            <span>Yellow circle shows finger position on game</span>
+                        </div>
+                        <div class="instruction-item">
+                            <span class="instruction-icon">🔄</span>
+                            <span>Snake wraps around screen edges</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-info">
+                    <div class="info-card">
+                        <div class="info-label">SCORE</div>
+                        <div class="info-value" id="scoreDisplay">0</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">STATUS</div>
+                        <div class="info-value" id="statusDisplay">
+                            <span class="status-dot playing"></span>
+                            Playing
+                        </div>
+                    </div>
+                    <button id="manualResetBtn" class="manual-reset">
+                        🔄 Reset Game
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-controls">
+            <div class="keyboard-hint">
+                💡 Press <kbd>R</kbd> to reset | <kbd>Space</kbd> to pause/resume
+            </div>
+            <div class="copyright">
+                © 2026 Astirmind Software Solutions | All Rights Reserved
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
